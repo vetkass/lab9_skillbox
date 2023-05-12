@@ -10,9 +10,10 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
     <Folder Include="Infrastructures\" />
+	<Folder Include="ViewModels\" />
+	<Folder Include="ViewModels\Base\" />
   </ItemGroup>
 
 </Project>
