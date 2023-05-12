@@ -4,11 +4,9 @@ C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\bin\Debug\net6.0-windows\lab9_W
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\bin\Debug\net6.0-windows\lab9_WPF.dll
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\bin\Debug\net6.0-windows\lab9_WPF.pdb
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\lab9_WPF.csproj.AssemblyReference.cache
-C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\lab9_WPF_MarkupCompile.cache
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\lab9_WPF_MarkupCompile.lref
-C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\lab9_WPF.g.resources
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\lab9_WPF.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\lab9_WPF.AssemblyInfoInputs.cache
@@ -19,3 +17,5 @@ C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\refint
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\lab9_WPF.pdb
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\lab9_WPF.genruntimeconfig.cache
 C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\ref\lab9_WPF.dll
+C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\Views\Windows\MainWindow.g.cs
+C:\Users\Svetunka\source\repos\lab9_WPF\lab9_WPF\obj\Debug\net6.0-windows\Views\Windows\MainWindow.baml

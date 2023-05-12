@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace lab9 // Note: actual namespace depends on the project name.
+namespace lab9
 {
     internal class Program
     {
