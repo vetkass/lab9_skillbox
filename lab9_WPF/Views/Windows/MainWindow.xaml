@@ -14,6 +14,51 @@
     <Window.Resources>
         <SolidColorBrush x:Key="TextBoxBack">DimGray</SolidColorBrush>
 
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FF66BB2A"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FF90C16E"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF38740D"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FF66BB2A"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF38740D"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FF66BB2A"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <Style x:Key="RectangleButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border x:Name="Border"
+                                    Background="{StaticResource Button.Static.Background}"
+                                    BorderBrush="{StaticResource Button.Static.Border}"
+                                    BorderThickness="2"
+                                    CornerRadius="10"
+                                    Width="120" Height="30"
+                                    Margin="7"
+                                    VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Button.MouseOver.Background}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Button.Pressed.Background}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
     </Window.Resources>
 
     <DockPanel>
@@ -74,7 +119,7 @@
             </TextBox>
             <!--#endregion-->
 
-            <!--#region Элемент для отображения перевернутого текста-->
+            <!--#region Элемент для отображения реверсивного текста-->
             <ScrollViewer
                 Grid.Row="2"
                 VerticalScrollBarVisibility="Auto"
@@ -91,6 +136,25 @@
                     Cursor="Hand"/>
             </ScrollViewer>
             <!--#endregion-->
+
+            <!--#region Элемент для отображения кнопок управления операций над текстом-->
+            <StackPanel
+                Grid.Row="1"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                Grid.Row="1"
+                Style="{StaticResource RectangleButtonStyle}"
+                Content="Separate words"/>
+                <Button
+                Grid.Row="1"
+                Style="{StaticResource RectangleButtonStyle}"
+                Content="Reverse text"/>
+                
+            </StackPanel>
+            <!--#endregion-->
+
+
 
         </Grid>
     </DockPanel>
