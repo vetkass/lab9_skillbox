@@ -33,9 +33,9 @@ namespace lab9_WPF.ViewModels
         }
         #endregion
 
-        #region Label with reversed text
+        #region Element reversed text
         /// <summary>
-        /// Лейбл с перевернутым текстом
+        /// Элемент с перевернутым текстом
         /// </summary>
         private string _LabelRWaT = "";
         public string LabelRWaT

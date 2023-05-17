@@ -60,6 +60,7 @@
         </Style>
 
         <commands:CloseApplicationCommand x:Key="CloseApplicationCmd"/>
+        <commands:ShowAboutCommand x:Key="ShowAboutCommand"/>
 
     </Window.Resources>
 
@@ -69,9 +70,7 @@
                 <MenuItem Header="Exit" Command="{StaticResource CloseApplicationCmd}"/>
             </MenuItem>
             <MenuItem Header="Help">
-                <MenuItem Header="About">
-                    
-                </MenuItem>
+                <MenuItem Header="About" Command="{StaticResource ShowAboutCommand}"/>
             </MenuItem>
         </Menu>
         <Grid Background="{StaticResource TextBoxBack}">
