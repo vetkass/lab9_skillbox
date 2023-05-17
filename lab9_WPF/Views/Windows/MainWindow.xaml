@@ -10,9 +10,6 @@
         
         xmlns:local="clr-namespace:lab9_WPF"
         Title="{Binding Path=Title}" Height="450" Width="800">
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
     <Window.Resources>
         <SolidColorBrush x:Key="TextBoxBack">DimGray</SolidColorBrush>
 
@@ -62,9 +59,21 @@
         <commands:CloseApplicationCommand x:Key="CloseApplicationCmd"/>
         <commands:ShowAboutCommand x:Key="ShowAboutCommand"/>
 
+        <vm:MainWindowViewModel x:Key="MainWindowViewModel" />
+
+        <!--send to ReverseTextCommand MainWindowViewModel as special parameter-->
+        <ObjectDataProvider x:Key="ReverseTextCommandInstance"
+                        ObjectType="{x:Type commands:ReverseTextCommand}">
+            <ObjectDataProvider.ConstructorParameters>
+                <!-- Reference the ViewModel as a constructor parameter -->
+                <StaticResource ResourceKey="MainWindowViewModel" />
+            </ObjectDataProvider.ConstructorParameters>
+        </ObjectDataProvider>
+
+
     </Window.Resources>
 
-    <DockPanel>
+    <DockPanel DataContext="{StaticResource MainWindowViewModel}">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Exit" Command="{StaticResource CloseApplicationCmd}"/>
@@ -123,6 +132,7 @@
 
             <!--#region Элемент для отображения реверсивного текста-->
             <ScrollViewer
+                
                 Grid.Row="2"
                 VerticalScrollBarVisibility="Auto"
                 >
@@ -134,10 +144,11 @@
                     VerticalAlignment="Stretch"
                     FontWeight="Light"
                     FontFamily="Bahnschrift"
-                    Text="{Binding Path=TextWaT}"
+                    Text="{Binding Path=LabelRWaT}"
                     Cursor="Hand"/>
             </ScrollViewer>
             <!--#endregion-->
+
 
             <!--#region Элемент для отображения кнопок управления операций над текстом-->
             <StackPanel
@@ -148,11 +159,12 @@
                 <Button
                 Style="{StaticResource RectangleButtonStyle}"
                 Content="Separate words"/>
-                
+
                 <Button
                 Style="{StaticResource RectangleButtonStyle}"
-                Content="Reverse text"/>
-                
+                Content="Reverse text"
+                Command="{Binding Source={StaticResource ReverseTextCommandInstance}}" />
+
             </StackPanel>
             <!--#endregion-->
 

@@ -1,7 +1,7 @@
 ﻿
 
 using System.Windows;
-using WPF_MVVM.Infrastructure.Commands.Base;
+using lab9_WPF.Infrastructures.Commands.Base;
 
 namespace lab9_WPF.Infrastructures.Commands
 {

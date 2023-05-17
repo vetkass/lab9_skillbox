@@ -1,9 +1,4 @@
 ﻿using lab9_WPF.ViewModels.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab9_WPF.ViewModels
 {
@@ -25,7 +20,7 @@ namespace lab9_WPF.ViewModels
         /// <summary>
         /// Текст в боксе "Write a text.."
         /// </summary>
-        private string _TextWaT = "";
+        private string _TextWaT = "Текст в боксе \"Write a text..\"";
         public string TextWaT
         {
             get => _TextWaT;

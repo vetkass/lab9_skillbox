@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WPF_MVVM.Infrastructure.Commands.Base
+namespace lab9_WPF.Infrastructures.Commands.Base
 {
     internal abstract class Command : ICommand
     {
