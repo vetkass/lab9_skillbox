@@ -31,8 +31,8 @@
                                     BorderBrush="{StaticResource Button.Static.Border}"
                                     BorderThickness="2"
                                     CornerRadius="10"
-                                    Width="120" Height="30"
-                                    Margin="7"
+                                    Width="120" Height="20"
+                                    Margin="5 0 5 0"
                                     VerticalAlignment="Center"/>
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center" />
@@ -70,6 +70,16 @@
             </ObjectDataProvider.ConstructorParameters>
         </ObjectDataProvider>
 
+        <!--send to ShowListCommand MainWindowViewModel as special parameter-->
+        <ObjectDataProvider x:Key="ShowListCommandInstance"
+                        ObjectType="{x:Type commands:ShowListCommand}">
+            <ObjectDataProvider.ConstructorParameters>
+                <!-- Reference the ViewModel as a constructor parameter -->
+                <StaticResource ResourceKey="MainWindowViewModel" />
+            </ObjectDataProvider.ConstructorParameters>
+        </ObjectDataProvider>
+
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
     </Window.Resources>
 
@@ -85,14 +95,13 @@
         <Grid Background="{StaticResource TextBoxBack}">
             <Grid.RowDefinitions>
                 <RowDefinition MinHeight="70" Height="70*" />
-                <RowDefinition MinHeight="70" Height="10*" />
-                <RowDefinition MinHeight="70" Height="30*" />
+                <RowDefinition MinHeight="10" Height="10*" />
+                <RowDefinition MinHeight="70" Height="70*" />
              </Grid.RowDefinitions>
 
             <!--#region Элемент для введения текста-->
             <TextBox
                     Grid.Row="0"
-                    x:Name = "Text"
                     HorizontalAlignment="Stretch"
                     FontSize="20"
                     Margin="5"      
@@ -132,21 +141,44 @@
 
             <!--#region Элемент для отображения реверсивного текста-->
             <ScrollViewer
-                
+                BorderThickness="1"
+                Visibility="{Binding LabelRWaTisVisible, Converter={StaticResource BoolToVisibilityConverter}}"  
                 Grid.Row="2"
                 VerticalScrollBarVisibility="Auto"
+                HorizontalAlignment="Stretch"
+                FontSize="20"
+                Margin="5"      
+                VerticalAlignment="Stretch"
+                FontWeight="Light"
+                FontFamily="Bahnschrift"
                 >
+                <Border BorderBrush="{StaticResource Button.Disabled.Border}" BorderThickness="1">
                 <TextBlock
                     TextWrapping="Wrap"
-                    HorizontalAlignment="Stretch"
-                    FontSize="20"
-                    Margin="5"      
-                    VerticalAlignment="Stretch"
-                    FontWeight="Light"
-                    FontFamily="Bahnschrift"
-                    Text="{Binding Path=LabelRWaT}"
-                    Cursor="Hand"/>
+                    Text="{Binding Path=LabelRWaT}"/>
+                </Border>
             </ScrollViewer>
+            <!--#endregion-->
+
+            <!--#region Элемент для отображения слов-->
+            <ListBox
+                Visibility="{Binding WordSetisVisible, Converter={StaticResource BoolToVisibilityConverter}}"  
+                Grid.Row="2"
+                HorizontalAlignment="Stretch"
+                FontSize="20"
+                Margin="5"      
+                VerticalAlignment="Stretch"
+                FontWeight="Light"
+                FontFamily="Bahnschrift"
+                Background="{StaticResource TextBoxBack}"
+                ItemsSource="{Binding WordSet}"
+                >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <!--#endregion-->
 
 
@@ -157,13 +189,14 @@
                 Orientation="Horizontal">
                 
                 <Button
-                Style="{StaticResource RectangleButtonStyle}"
-                Content="Separate words"/>
+                    Style="{StaticResource RectangleButtonStyle}"
+                    Content="Separate words"
+                    Command="{Binding Source={StaticResource ShowListCommandInstance}}" Height="28" />
 
                 <Button
-                Style="{StaticResource RectangleButtonStyle}"
-                Content="Reverse text"
-                Command="{Binding Source={StaticResource ReverseTextCommandInstance}}" />
+                    Style="{StaticResource RectangleButtonStyle}"
+                    Content="Reverse text"
+                    Command="{Binding Source={StaticResource ReverseTextCommandInstance}}" />
 
             </StackPanel>
             <!--#endregion-->
