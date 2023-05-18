@@ -79,6 +79,15 @@
             </ObjectDataProvider.ConstructorParameters>
         </ObjectDataProvider>
 
+        <!--send to ClearCommand MainWindowViewModel as special parameter-->
+        <ObjectDataProvider x:Key="ClearCommandInstance"
+                        ObjectType="{x:Type commands:ClearCommand}">
+            <ObjectDataProvider.ConstructorParameters>
+                <!-- Reference the ViewModel as a constructor parameter -->
+                <StaticResource ResourceKey="MainWindowViewModel" />
+            </ObjectDataProvider.ConstructorParameters>
+        </ObjectDataProvider>
+
         <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
     </Window.Resources>
@@ -197,6 +206,11 @@
                     Style="{StaticResource RectangleButtonStyle}"
                     Content="Reverse text"
                     Command="{Binding Source={StaticResource ReverseTextCommandInstance}}" />
+
+                <Button
+                    Style="{StaticResource RectangleButtonStyle}"
+                    Content="Clear"
+                    Command="{Binding Source={StaticResource ClearCommandInstance}}"/>
 
             </StackPanel>
             <!--#endregion-->

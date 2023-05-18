@@ -54,7 +54,6 @@ namespace lab9_WPF.ViewModels
         }
         #endregion
 
-
         #region Element for separate words showing
         /// <summary>
         /// Элемент для отображения набора слов
